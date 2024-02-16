@@ -58,7 +58,7 @@ const ThankYou = ()=>{
                     m: 2
                 }}
                 alt="graphic of a cupcake"
-                src="/public/assets/cupcake_icon_colored.png"
+                src="/public/assets/catan.jpg"
             >
             </Box>
             <Typography variant="h4" sx={{mt: 1}}>

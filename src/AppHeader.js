@@ -24,7 +24,7 @@ const AppHeader = ({ isLoggedIn, logout ,cartCount,}) => {
                 height: "7.5rem"
             }}
             alt="graphic of a cake"
-            src="/public/assets/cake-icon-home2.png"
+            src="/public/assets/qwirkle.jpg"
             >
           </Box>
         </Button>

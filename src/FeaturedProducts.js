@@ -13,7 +13,7 @@ const FeaturedProducts = () => {
           flexDirection: 'row',
           justifyContent: 'center',
           height: "20rem",
-          backgroundImage: 'url(/public/assets/valentines-background.png)',
+          backgroundImage: 'url(/public/assets/clue.jpg)',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
@@ -57,7 +57,7 @@ const FeaturedProducts = () => {
               bottom: '-1rem'
           }}
           alt="Valentine's Cake"
-          src="/public/assets/valentines-cake-cover2.png"        
+          src="/public/assets/clue.jpg"        
         >          
         </Box>
       </Paper>

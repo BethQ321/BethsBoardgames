@@ -53,7 +53,7 @@ const SignIn = ({ login }) => {
                 height: '100vh',
             }}
             alt="graphic of a koala cake"
-            src="/public/assets/koala_login2.jpg"
+            src="/public/assets/connect4.jpg"
         >
         </Box>
       </Grid>

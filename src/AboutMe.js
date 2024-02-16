@@ -15,7 +15,7 @@ const AboutMe = () => {
           <Card sx={{ display: 'flex' }}>
             <CardMedia
               sx={{ p: "1rem", width: "400px", height: "700px" }}
-              image={"/public/assets/Beth's About Me page pic.jpg"}
+              image={"/public/assets/catan.jpg"}
               component="img"
              
             />
