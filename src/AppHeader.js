@@ -15,86 +15,85 @@ const AppHeader = ({ isLoggedIn, logout ,cartCount,}) => {
   return (
     <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, height: "8rem" }}>
       <Toolbar>
-        <Button sx={{ display: 'flex', flexDirection: 'column' }}>       
+        <Button sx={{ display: 'flex', flexDirection: 'column', pt: '1.5rem', pb: '1.5rem' }}>       
           <Box
             // className='imageButton'
             onClick={() => { navigate("/") }} 
             component="img"
             sx={{
-                height: "7.5rem"
+                height: "5rem"
             }}
-            alt="graphic of a cake"
-            src="/public/assets/qwirkle.jpg"
+            alt="gamme store logo"
+            src="/public/assets/logo-11a.png"
             >
           </Box>
         </Button>
-        <Box sx={{ display: 'flex', flexGrow: 1, flexDirection: 'column' }}>
+        <Box sx={{ display: 'flex', flexGrow: 1, flexDirection: 'row', ml: '10vw', mr: '10vw' }}>
+          <Typography
+            variant="h6"
+            color="text.secondary"
+            align='center'
+            sx={{ flexGrow: 1 }}
+          >
+            Board Games
+          </Typography>
+          <Typography
+            variant="h6"
+            color="text.secondary"
+            align='center'
+            sx={{ flexGrow: 1 }}
+          >
+            Card Games
+          </Typography>
+          <Typography
+            variant="h6"
+            color="text.secondary"
+            align='center'
+            sx={{ flexGrow: 1 }}
+          >
+            Sale
+          </Typography>
           <Typography
             component="h1"
-            variant="h2"
-            color="inherit"
-            noWrap
-            sx={{ flexGrow: 1, fontSize: "5rem", mb: -1.5 }}
+            variant="h6"
+            color="text.secondary"
             align='center'
+            sx={{ flexGrow: 1 }}
           >
-            {`The Cake {Code}`}
+            Explore Gamme
           </Typography>
-          <Typography variant='subtitle1' marginLeft='61%' sx={{ fontSize: "2rem", mt: -1.5 }}>take a byte</Typography>
         </Box>
         {isLoggedIn && (
           <>
            {/* display user profile */}
             <Tooltip title={"User profile"}>
               <IconButton
-                color="inherit"
                 aria-label={"user profile"}
                 onClick={() => navigate("/user-profile_mui")}
+                sx={{ color: 'text.secondary' }}
               >
                 <AccountCircleIcon fontSize='large' />
               </IconButton>
             </Tooltip>
             {/* display cart */}
             <Tooltip title="Cart">
-          <IconButton color="inherit" onClick={()=>{navigate("/cart")}}>
-          <Badge badgeContent={cartCount} sx={{ "& .MuiBadge-badge": { backgroundColor: "accentPurple.dark" } }}>
-            <ShoppingCartIcon fontSize='large' />
-          </Badge>  
-        </IconButton>
-      </Tooltip>
-         
-{/* display Contact */}
-          <Tooltip title={"ContactMe"}>
-              <IconButton
-                color="inherit"
-                aria-label={"Contact Me"}
-                onClick={() => navigate("/contact")}
+              <IconButton 
+                aria-label={'cart'}
+                onClick={()=>{navigate("/cart")}}
+                sx={{ color: 'text.secondary' }} 
               >
-                <ContactPhoneIcon fontSize='large' />
+                <Badge badgeContent={cartCount} sx={{ "& .MuiBadge-badge": { backgroundColor: "secondary.main" } }}>
+                  <ShoppingCartIcon fontSize='large' />
+                </Badge>  
               </IconButton>
             </Tooltip>
-
- </>
+          </>
         )}
-     
-
-          
-
-        {/* display About Me */}
-         <Tooltip title={"AboutMe"}>
-              <IconButton
-                color="inherit"
-                aria-label={"About Me"}
-                onClick={() => navigate("/aboutme")}
-              >
-                <InfoRoundedIcon fontSize='large' />
-              </IconButton>
-            </Tooltip>
-
         <Tooltip title={isLoggedIn ? "Logout" : "Login"}>
           <IconButton
-            color="inherit"
             aria-label={isLoggedIn ? "Logout" : "Login"}
             onClick={() => isLoggedIn ? logout() : navigate("/sign-in")}
+            sx={{ color: 'text.secondary' }}
           >
             {isLoggedIn ? <LogoutIcon fontSize='large' /> : <LoginIcon fontSize='large' />}
           </IconButton>

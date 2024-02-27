@@ -15,14 +15,14 @@ const defaultTheme = createTheme({
     mode: 'light',
     //blue
     primary: {
-      main: '#9ad8eb',
+      main: '#003366',
       light: '#bbe4f2',
       dark: '#66c4e1',
       contrastText: '#3d3d3d',
     },
     //cream
     secondary: {
-      main: '#efe19f',
+      main: '#ff9966',
       light: '#f8f3dd',
       dark: '#eadb99',
     },
@@ -49,7 +49,7 @@ const defaultTheme = createTheme({
     },
     text: {
       primary: 'rgba(20,20,20,1)',
-      secondary: 'rgba(40,40,42,0.7)',
+      secondary: '#ffffff',
     },
   },
   typography: {
