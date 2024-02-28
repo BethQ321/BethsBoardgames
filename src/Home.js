@@ -7,7 +7,7 @@ import Container from '@mui/material/Container';
 import { Route, Routes } from 'react-router-dom';
 import AppHeader from './AppHeader';
 import AppFooter from './AppFooter';
-// import AppSideMenu from './AppSideMenu';
+import AppSideMenu from './AppSideMenu';
 import FeaturedProducts from './FeaturedProducts';
 import FrequentlyBought from './FrequentlyBought';
 import api from './api';
@@ -197,7 +197,7 @@ const Home = ({ user, logout, setUser }) => {
       <Box sx={{ display: 'flex', minHeight: "100vh" }}>
         
         <AppHeader isLoggedIn={isLoggedIn} logout={logout} cartCount={cartCount} />
-        {/* <AppSideMenu isAdmin={isAdmin} /> */}
+        <AppSideMenu isAdmin={isAdmin} />
         <Box
           component="main"
           sx={{
