@@ -35,15 +35,7 @@ const AppHeader = ({ isLoggedIn, logout ,cartCount,}) => {
             align='center'
             sx={{ flexGrow: 1 }}
           >
-            Board Games
-          </Typography>
-          <Typography
-            variant="h6"
-            color="text.secondary"
-            align='center'
-            sx={{ flexGrow: 1 }}
-          >
-            Card Games
+            Games
           </Typography>
           <Typography
             variant="h6"

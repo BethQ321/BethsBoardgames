@@ -63,10 +63,10 @@ const ProductDetails = ({ products, cartItems, createLineItem, updateLineItem, i
               <Typography gutterBottom variant="h5" component="span">
                 {selectedProduct?.name}
               </Typography>
-              <Typography variant="body1" color="text.secondary">
+              <Typography variant="body1" color="text.primary">
                 {selectedProduct?.description}
               </Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="body2" color="text.primary">
                 {displayPrice.format(selectedProduct?.price)}
               </Typography>
               <Typography variant="caption" className="vipDiscount">
