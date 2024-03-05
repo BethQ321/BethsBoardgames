@@ -67,12 +67,38 @@ const AppHeader = ({ isLoggedIn, logout ,cartCount,}) => {
                 'aria-labelledby': 'game-menu-button',
               }}
               transformOrigin={{ horizontal: 'left', vertical: 'top' }}
-              anchorOrigin={{ horizontal: 'center', vertical: 'bottom' }}
+              anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
             >
-              <MenuItem onClick={() => navigate("/products")}>All Games</MenuItem>
-              <MenuItem onClick={() => navigate("/products?category=board%20games")}>Board Games</MenuItem>
-              <MenuItem onClick={() => navigate("/products?category=card%20games")}>Card Games</MenuItem>
-              <Divider />
+              <Box sx={{display: 'flex', flexDirection: 'row'}}>
+                <Box>
+                  <MenuItem sx={{fontWeight: 'bold'}}>Game Type</MenuItem>
+                  <MenuItem onClick={() => navigate("/products")}>All Games</MenuItem>
+                  <MenuItem onClick={() => navigate("/products?category=board%20games")}>Board Games</MenuItem>
+                  <MenuItem onClick={() => navigate("/products?category=card%20games")}>Card Games</MenuItem>
+                  <br />
+                  <MenuItem sx={{fontWeight: 'bold'}}>Category</MenuItem>
+                  <MenuItem onClick={handleClose}>Strategy</MenuItem>
+                  <MenuItem onClick={handleClose}>Roll & Write</MenuItem>
+                  <MenuItem onClick={handleClose}>Party</MenuItem>
+                  <MenuItem onClick={handleClose}>Puzzle</MenuItem>
+                  <MenuItem onClick={handleClose}>Abstract</MenuItem>
+                  <MenuItem onClick={handleClose}>Cooperative</MenuItem>
+                </Box>
+                <Box sx={{ml: 5, mr: 5}}></Box>
+                <Box>
+                  <MenuItem sx={{fontWeight: 'bold'}}>Age</MenuItem>
+                  <MenuItem onClick={handleClose}>Kids</MenuItem>
+                  <MenuItem onClick={handleClose}>Teens</MenuItem>
+                  <MenuItem onClick={handleClose}>Family</MenuItem>
+                  <MenuItem onClick={handleClose}>Adults</MenuItem>
+                  <br />
+                  <MenuItem sx={{fontWeight: 'bold'}}>Prices</MenuItem>
+                  <MenuItem onClick={handleClose}>Under $25</MenuItem>
+                  <MenuItem onClick={handleClose}>$25-$50</MenuItem>
+                  <MenuItem onClick={handleClose}>$50-$75</MenuItem>
+                  <MenuItem onClick={handleClose}>$75+</MenuItem>
+                </Box>
+              </Box>
             </Menu>
             <Typography
               variant="h6"
