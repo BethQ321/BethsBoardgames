@@ -71,12 +71,12 @@ const AppHeader = ({ isLoggedIn, logout ,cartCount,}) => {
             >
               <Box sx={{display: 'flex', flexDirection: 'row'}}>
                 <Box>
-                  <MenuItem sx={{fontWeight: 'bold'}}>Game Type</MenuItem>
-                  <MenuItem onClick={() => navigate("/products")}>All Games</MenuItem>
+                  <Typography sx={{fontWeight: 'bold', ml: 2}}>Game Type</Typography>
+                  <MenuItem onClick={() => navigate("/products")}>All Products</MenuItem>
                   <MenuItem onClick={() => navigate("/products?category=board%20games")}>Board Games</MenuItem>
                   <MenuItem onClick={() => navigate("/products?category=card%20games")}>Card Games</MenuItem>
                   <br />
-                  <MenuItem sx={{fontWeight: 'bold'}}>Category</MenuItem>
+                  <Typography sx={{fontWeight: 'bold', ml: 2}}>Category</Typography>
                   <MenuItem onClick={handleClose}>Strategy</MenuItem>
                   <MenuItem onClick={handleClose}>Roll & Write</MenuItem>
                   <MenuItem onClick={handleClose}>Party</MenuItem>
@@ -86,13 +86,13 @@ const AppHeader = ({ isLoggedIn, logout ,cartCount,}) => {
                 </Box>
                 <Box sx={{ml: 5, mr: 5}}></Box>
                 <Box>
-                  <MenuItem sx={{fontWeight: 'bold'}}>Age</MenuItem>
+                <Typography sx={{fontWeight: 'bold', ml: 2}}>Age</Typography>
                   <MenuItem onClick={handleClose}>Kids</MenuItem>
                   <MenuItem onClick={handleClose}>Teens</MenuItem>
                   <MenuItem onClick={handleClose}>Family</MenuItem>
                   <MenuItem onClick={handleClose}>Adults</MenuItem>
                   <br />
-                  <MenuItem sx={{fontWeight: 'bold'}}>Prices</MenuItem>
+                  <Typography sx={{fontWeight: 'bold', ml: 2}}>Prices</Typography>
                   <MenuItem onClick={handleClose}>Under $25</MenuItem>
                   <MenuItem onClick={handleClose}>$25-$50</MenuItem>
                   <MenuItem onClick={handleClose}>$50-$75</MenuItem>

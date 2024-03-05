@@ -100,15 +100,15 @@ const Products = ({ products, cartItems, createLineItem, updateLineItem, isLogge
     })
   }
 
-  //Display products based on category selected from side menu
+  //Display products based on category selected from top menu
   const showProducts = (category) => {
     let productsToDisplay;
-    if (category && category !== "All Cakes") {
+    if (category && category !== "All Games") {
       productsToDisplay = products.filter((product) => {
         return (product.category === category)
       })
     } else {
-      //for "all cakes" and /producs path - display all products   
+      //for "all games" and /products path - display all products   
       productsToDisplay = products;
     }
 
