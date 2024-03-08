@@ -28,7 +28,7 @@ const SearchBar = ({ searchList, onSearch }) => {
   return (
     <Box sx={{ display: 'flex', alignItems: 'flex-end', mb: 2 }}>
       <SearchIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-      <TextField label="Search cake name here" variant="standard" sx={{width:'25rem'}}  value={searchText} onChange={handleSearch}></TextField>
+      <TextField label="Search game here" variant="standard" sx={{width:'25rem'}}  value={searchText} onChange={handleSearch}></TextField>
     </Box>
 
   )

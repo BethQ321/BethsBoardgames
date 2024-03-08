@@ -1,22 +1,29 @@
 import { AppBar, Badge, Box, Button, Divider, IconButton, ListItemIcon, Menu, MenuItem, Toolbar, Tooltip, Typography } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import LogoutIcon from '@mui/icons-material/Logout';
 import LoginIcon from '@mui/icons-material/Login';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
-import { useNavigate } from 'react-router-dom';
-import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import SearchBar from './SearchBar';
 
 
 
-const AppHeader = ({ isLoggedIn, logout ,cartCount,}) => {
+const AppHeader = ({ isLoggedIn, logout ,cartCount, products }) => {
+  const [searchResults, setSearchResults] = useState();
   const navigate = useNavigate();
+  const [queryParams] = useSearchParams();
+  const productCategory = queryParams.get("category");
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
+  };
+  const handleOptionClick = (event) => {
+    navigate(`/products?category=${event.target.innerText}`);
+    handleClose();
   };
   const handleClose = () => {
     setAnchorEl(null);
@@ -72,9 +79,9 @@ const AppHeader = ({ isLoggedIn, logout ,cartCount,}) => {
               <Box sx={{display: 'flex', flexDirection: 'row'}}>
                 <Box>
                   <Typography sx={{fontWeight: 'bold', ml: 2}}>Game Type</Typography>
-                  <MenuItem onClick={() => navigate("/products")}>All Products</MenuItem>
-                  <MenuItem onClick={() => navigate("/products?category=board%20games")}>Board Games</MenuItem>
-                  <MenuItem onClick={() => navigate("/products?category=card%20games")}>Card Games</MenuItem>
+                  <MenuItem onClick={handleOptionClick}>All Games</MenuItem>
+                  <MenuItem onClick={handleOptionClick}>Board Games</MenuItem>
+                  <MenuItem onClick={handleOptionClick}>Card Games</MenuItem>
                   <br />
                   <Typography sx={{fontWeight: 'bold', ml: 2}}>Category</Typography>
                   <MenuItem onClick={handleClose}>Strategy</MenuItem>
@@ -119,6 +126,7 @@ const AppHeader = ({ isLoggedIn, logout ,cartCount,}) => {
             </Typography>
           </Box>
         </React.Fragment>
+        <SearchBar key={`searchbar-for-${productCategory}`} searchList={products} onSearch={(results) => { setSearchResults(results) }} />
         {isLoggedIn && (
           <>
            {/* display user profile */}

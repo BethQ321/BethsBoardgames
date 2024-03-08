@@ -196,7 +196,7 @@ const Home = ({ user, logout, setUser }) => {
     <Box>
       <Box sx={{ display: 'flex', minHeight: "100vh" }}>
         
-        <AppHeader isLoggedIn={isLoggedIn} logout={logout} cartCount={cartCount} />
+        <AppHeader isLoggedIn={isLoggedIn} logout={logout} cartCount={cartCount} products={products} />
         {/* <AppSideMenu isAdmin={isAdmin} /> */}
         <Box
           component="main"
