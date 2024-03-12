@@ -30,7 +30,7 @@ const AppHeader = ({ isLoggedIn, logout ,cartCount, products }) => {
   };
 
   return (
-    <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, height: "4rem" }}>
+    <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer, height: "4rem" }}>
       <Toolbar>
         <Button sx={{ display: 'flex', flexDirection: 'column', pt: '1.5rem', pb: '1.5rem' }}>       
           <Box

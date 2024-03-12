@@ -12,37 +12,35 @@ import { Css } from '@mui/icons-material';
 
 const defaultTheme = createTheme({
   palette: {
+    //check variations to see if light and dark are correct
     mode: 'light',
-    //blue
+    //prussian blue
     primary: {
       main: '#003366',
       light: '#bbe4f2',
       dark: '#66c4e1',
       contrastText: '#3d3d3d',
     },
-    //cream
+    //atomic tangerine
     secondary: {
       main: '#ff9966',
       light: '#f8f3dd',
       dark: '#eadb99',
     },
-    //purple
-    accentPurple: {
+    //cerulean blue 
+    accentBlue: {
       dark: '#c999ff',
-      main: '#d3adff',
+      main: '#277490',
       light: '#e9d6ff',
     },
-    //pink
-    accentPink: {
+    //tiffany blue
+    accentTeal: {
       dark: '#FE86AE',
-      main: '#FEA0C0',
+      main: '#89D2CA',
       light: '#FEC2D6',
       darkest: '#fd5d93'
     },
-    //yellow
-    accentYellow: {
-      main: 'eeee73',
-    },
+  
     //very light cream
     background: {
       default: '#f3eedc',

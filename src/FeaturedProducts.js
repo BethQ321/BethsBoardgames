@@ -1,68 +1,96 @@
-import { Box, Container, Grid, Paper, Typography } from "@mui/material";
+import { Box, Button, Container, Divider, Grid, Paper, Stack, Typography } from "@mui/material";
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 
 
 const FeaturedProducts = () => {
+  const navigate = useNavigate();
+  const handleClick = (event) => {
+    console.log(event)
+    navigate(`/products?category=${event.target.name}`);
+  };
+
   return (
-    <Container maxWidth="xl" sx={{ mt: "3rem", mb: 4 }}>
+    <Box sx={{ 
+        mb: 4, 
+        display: 'flex', 
+        flexDirection: 'row', 
+        width: "100%" 
+      }}>
     
-      <Paper
+      <Box
         sx={{
-          p: 0,
           display: 'flex',
-          flexDirection: 'row',
+          flexDirection: 'column',
           justifyContent: 'center',
-          height: "20rem",
-          backgroundImage: 'url(/public/assets/clue.jpg)',
+          alignItems: 'center',
+          height: "40rem",
+          width: "50%",
+          backgroundImage: 'url(/public/assets/generic-boardgame-background-cropped.jpg)',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          borderRadius: '1rem',
-          position: 'relative'
+          backgroundPosition: 'top',
+          position: 'relative',
+          zIndex: 2,
         }}
       >
-        <Box 
-          sx={{             
-            display: 'flex', 
-            flexDirection: 'column', 
-            justifyContent: 'center',
-            alignItems: 'center',
-            color: 'white', 
-            fontWeight: 'bold', 
-            zIndex: 4,
-            height: "20rem"
-          }}>
-          <Typography variant='h2' sx={{ fontSize: "6vw", fontWeight: 900, mb: "-.3em" }}>
-            VALENTINE'S
-          </Typography>
-          <Typography variant='h2' sx={{ fontSize: "6vw", fontWeight: 900, mb: "-.3em" }}>
-            DAY
-          </Typography>
-          <Typography variant='body1' sx={{ fontSize: "2.5vw", fontWeight: 700, mb: "-.2em" }}>
-            is just around the corner
-          </Typography>
-          <Typography variant='body1' sx={{ fontSize: "3.5vw", fontWeight: 700, mt: "-.2em" }}>
-            ORDER YOUR CAKE TODAY!
-          </Typography>
-        </Box>
+        <Stack direction="column" spacing={3}
+          sx={{
+            width: '30%',
+            display: 'flex',
+          }}
+        >
+          <Button variant="contained" name="All Games" onClick={handleClick} sx={{ backgroundColor: 'white' }}>All Games</Button>
+          <Button variant="contained" name="Board Games" onClick={handleClick} sx={{ backgroundColor: 'white' }}>Board Games</Button>
+          <Button variant="contained" name="Card Games" onClick={handleClick} sx={{ backgroundColor: 'white' }}>Card Games</Button>
+        </Stack>
+      </Box>      
+      <Box 
+        sx={{             
+          display: 'flex', 
+          flexDirection: 'column', 
+          justifyContent: 'center',
+          alignItems: 'center',
+          color: 'white', 
+          width: '50%',
+          backgroundColor: 'accentBlue.main',
+          fontWeight: 'bold', 
+          zIndex: 4,
+          height: "40rem"
+        }}>
         <Box
           component="img"
           sx={{
               justifyContent: 'right',
               pr: 0,
-              height: "22rem",
+              width: "80%",
               zIndex: 2,
-              position: 'absolute',
+              position: 'relative',
               right: 0,
-              bottom: '-1rem'
           }}
-          alt="Valentine's Cake"
-          src="/public/assets/clue.jpg"        
+          alt="gamme store logo"
+          src="/public/assets/logo-11a.png"        
         >          
         </Box>
-      </Paper>
-      
-    </Container>
+        <Divider
+          variant='middle'
+          flexItem
+          sx={{
+            height: '4px',
+            color: 'white', 
+            backgroundColor: 'white',
+            mt: '2em',
+            mb: '2em',
+            ml: '5em',
+            mr: '5em'
+          }}
+        >
+        </Divider>
+        <Typography variant='h3' sx={{ fontWeight: 900 }}>
+          where gamers come to play
+        </Typography>
+      </Box>
+    </Box>
   )
 }
 

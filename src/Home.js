@@ -206,13 +206,14 @@ const Home = ({ user, logout, setUser }) => {
                 ? theme.palette.grey[100]
                 : theme.palette.grey[900],
             flexGrow: 1,
-            // height: '100vh',
             overflow: 'auto',
-            paddingTop: '5rem'
+            mt: -2,
+            ml: -3,
+            mr: -4
           }}
         >
 
-          <Container maxWidth="xl" sx={{ mt: 10, mb: 4 }}>
+          <Box sx={{ mt: 10, mb: 4 }}>
             <Routes>
               {/* display landing page as home page for all users */}
               <Route path="/" element={
@@ -354,7 +355,7 @@ const Home = ({ user, logout, setUser }) => {
               }
 
             </Routes>
-          </Container>
+          </Box>
         </Box>
       </Box>
       <AppFooter />
