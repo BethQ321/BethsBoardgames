@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 const FeaturedProducts = () => {
   const navigate = useNavigate();
   const handleClick = (event) => {
-    console.log(event)
     navigate(`/products?category=${event.target.name}`);
   };
 

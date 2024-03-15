@@ -1,17 +1,20 @@
-import { AppBar, Badge, Box, Button, Divider, IconButton, ListItemIcon, Menu, MenuItem, Toolbar, Tooltip, Typography } from '@mui/material';
+import { AppBar, Badge, Box, Button, Divider, IconButton, ListItemIcon, Menu, MenuItem, TextField, Toolbar, Tooltip, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import LogoutIcon from '@mui/icons-material/Logout';
 import LoginIcon from '@mui/icons-material/Login';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import SearchIcon from '@mui/icons-material/Search';
 import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import SearchBar from './SearchBar';
 
 
 
+// const AppHeader = ({ isLoggedIn, logout ,cartCount, products, searchResults, setSearchResults }) => {
 const AppHeader = ({ isLoggedIn, logout ,cartCount, products }) => {
-  const [searchResults, setSearchResults] = useState();
+  // const [searchResults, setSearchResults] = useState();
+  const [searchText, setSearchText] = useState('');
   const navigate = useNavigate();
   const [queryParams] = useSearchParams();
   const productCategory = queryParams.get("category");
@@ -28,9 +31,31 @@ const AppHeader = ({ isLoggedIn, logout ,cartCount, products }) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  // const handleSearch = (event) => {
+  //   //setSearchResults(results);
+  //   navigate('/products');
+  // }
+  // const handleKeyPress = (event) => {
+  //   if (event.key === "Enter") {
+  //     navigate('/products');
+  //   }
+  // }
+
+  
+  const handleSearch = (event) => {  
+    const searchString = event.target.value;
+    setSearchText(searchString);
+  }
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      navigate(`/products?search=${searchText}`);
+      setSearchText('');
+    }
+  }
 
   return (
-    <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer, height: "4rem" }}>
+    <AppBar position="absolute" sx={{ zIndex: (theme) => theme.zIndex.drawer, height: "4rem" }}>
       <Toolbar>
         <Button sx={{ display: 'flex', flexDirection: 'column', pt: '1.5rem', pb: '1.5rem' }}>       
           <Box
@@ -46,7 +71,7 @@ const AppHeader = ({ isLoggedIn, logout ,cartCount, products }) => {
           </Box>
         </Button>
         <React.Fragment>
-          <Box sx={{ display: 'flex', flexGrow: 1, flexDirection: 'row', ml: '10vw', mr: '10vw' }}>
+          <Box sx={{ display: 'flex', flexGrow: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', ml: '10vw', mr: '10vw' }}>
             <Tooltip title="Game Menu">
               <Button
                 id="game-menu"
@@ -55,7 +80,7 @@ const AppHeader = ({ isLoggedIn, logout ,cartCount, products }) => {
                 aria-haspopup="true"
                 aria-expanded={open ? 'true' : undefined}
                 align='center'
-                sx={{ flexGrow: 1 }}
+                sx={{ flexGrow: 1, ml: 2, mr: 2 }}
               >
                 <Typography
                   variant="h6"
@@ -111,7 +136,7 @@ const AppHeader = ({ isLoggedIn, logout ,cartCount, products }) => {
               variant="h6"
               color="text.secondary"
               align='center'
-              sx={{ flexGrow: 1 }}
+              sx={{ flexGrow: 1, ml: 2, mr: 2 }}
             >
               Sale
             </Typography>
@@ -120,13 +145,31 @@ const AppHeader = ({ isLoggedIn, logout ,cartCount, products }) => {
               variant="h6"
               color="text.secondary"
               align='center'
-              sx={{ flexGrow: 1 }}
+              sx={{ flexGrow: 1, ml: 2, mr: 2 }}
             >
               Explore Gamme
             </Typography>
           </Box>
         </React.Fragment>
-        <SearchBar key={`searchbar-for-${productCategory}`} searchList={products} onSearch={(results) => { setSearchResults(results) }} />
+        
+        {/* Search bar */}
+        <Box sx={{ display: 'flex', alignItems: 'flex-end', }}>
+          <SearchIcon sx={{ color: 'white', mr: 1, my: 0.5 }} />
+          <TextField 
+            focused
+            label="Search" 
+            variant="filled" 
+            size="small"
+            sx={{
+              width:'15rem',
+              backgroundColor: 'white'
+            }}  
+            value={searchText} 
+            onChange={handleSearch}
+            onKeyDown={handleKeyPress}
+          >
+          </TextField>
+        </Box>
         {isLoggedIn && (
           <>
            {/* display user profile */}

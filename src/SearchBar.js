@@ -15,8 +15,6 @@ const SearchBar = ({ searchList, onSearch }) => {
       return productName || productDescription
     })
 
-    console.log(filteredProducts)
-
     //if onSearch fn is passed from calling component, call onSearch() with filtered products as args
     //this returns the filtered products to the calling component
     //the calling component uses the data to set it to the state and renders the page with results
@@ -28,7 +26,7 @@ const SearchBar = ({ searchList, onSearch }) => {
   return (
     <Box sx={{ display: 'flex', alignItems: 'flex-end', mb: 2 }}>
       <SearchIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-      <TextField label="Search game here" variant="standard" sx={{width:'25rem'}}  value={searchText} onChange={handleSearch}></TextField>
+      <TextField label="Search cake name here" variant="standard" sx={{width:'25rem'}}  value={searchText} onChange={handleSearch}></TextField>
     </Box>
 
   )

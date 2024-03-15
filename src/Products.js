@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate, useSearchParams } from "react-router-dom";
-import SearchBar from './SearchBar';
 import { displayPrice } from './Util';
 import { Box, Card, CardActions, CardContent, CardMedia, Container, Fab, Hidden, IconButton, Tooltip, Typography } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
@@ -16,10 +15,26 @@ const Products = ({ products, cartItems, createLineItem, updateLineItem, isLogge
   const navigate = useNavigate();
   const [queryParams] = useSearchParams();
   const productCategory = queryParams.get("category");
+  const productSearch = queryParams.get("search");
+
+  useEffect(() => {
+    if(productSearch) {
+      const filteredProducts = products?.filter((product) => {
+        const productName = product.name.toLowerCase().indexOf(productSearch.toLowerCase()) !== -1
+        const productDescription = product.description.toLowerCase().indexOf(productSearch.toLowerCase()) !== -1
+        return productName || productDescription
+      })
+      if(filteredProducts) {
+        setSearchResults(filteredProducts);
+      }
+    }
+  }, [productSearch])
 
   //to clear search as the user navigates along the menu items
   useEffect(() => {
-    setSearchResults();
+    if(productCategory) {
+      setSearchResults("");
+    };
   }, [productCategory])
 
   //display search results in the page
@@ -117,12 +132,10 @@ const Products = ({ products, cartItems, createLineItem, updateLineItem, isLogge
   }
 
   return (
-    <Box>     
+    <Container>     
       <Typography variant='h4'>
-        {productCategory??"All Products"}
+        {(productCategory || `results for "${productSearch}"`)??"All Products"}
       </Typography>
-      {/* key renders new searchbar everytime the product category changes */}
-      <SearchBar key={`searchbar-for-${productCategory}`} searchList={products} onSearch={(results) => { setSearchResults(results) }} />
       {
         isAdmin && (
           <Tooltip title={"Add new product"}>
@@ -139,7 +152,7 @@ const Products = ({ products, cartItems, createLineItem, updateLineItem, isLogge
             : showProducts(productCategory)
         }
       </Container>
-    </Box>
+    </Container>
   );
 };
 

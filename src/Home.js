@@ -37,6 +37,8 @@ const Home = ({ user, logout, setUser }) => {
   const [customers, setCustomers] = useState([]);
   const [allOrders, setAllOrders] = useState([]);
   const [allLineItems, setAllLineItems] = useState([]);
+  // const [searchResults, setSearchResults] = useState("");
+  // console.log("search results=", searchResults)
 
   useEffect(() => {
     //if the logged in user is an admin, get customer details from db
@@ -196,7 +198,14 @@ const Home = ({ user, logout, setUser }) => {
     <Box>
       <Box sx={{ display: 'flex', minHeight: "100vh" }}>
         
-        <AppHeader isLoggedIn={isLoggedIn} logout={logout} cartCount={cartCount} products={products} />
+        <AppHeader 
+          isLoggedIn={isLoggedIn} 
+          logout={logout} 
+          cartCount={cartCount} 
+          products={products} 
+          // searchResults={searchResults} 
+          // setSearchResults={setSearchResults} 
+        />
         {/* <AppSideMenu isAdmin={isAdmin} /> */}
         <Box
           component="main"
@@ -237,6 +246,8 @@ const Home = ({ user, logout, setUser }) => {
                     createWishlistItem={createWishlistItem}
                     deleteWishlistItem={deleteWishlistItem}
                     isProductInWishlist={isProductInWishlist}
+                    // searchResults={searchResults}
+                    // setSearchResults={setSearchResults}
                   />
                 }
               />
